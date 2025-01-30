@@ -12,7 +12,7 @@ sequelize
   .authenticate()
   .then(() => {
     console.log("Database connected...");
-    sequelize.sync({ force: true }) 
+    sequelize.sync() 
       .then(() => console.log("Tables created or synced"))
       .catch((err) => console.error("Error syncing models:", err));
   })

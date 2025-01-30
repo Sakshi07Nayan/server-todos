@@ -1,20 +1,18 @@
-const { Todo } = require("../models/todo");
+const Todo = require("../models/todo"); 
 
 exports.createTodo = async (req, res) => {
     try {
         const { title, description } = req.body;
-        
-        // Ensure req.userId is available
+
         console.log("User ID:", req.userId);
 
-        // Create the todo
         const todo = await Todo.create({
             title,
             description,
-            user_id: req.userId // Make sure user_id is correctly passed
+            user_id: req.userId 
         });
 
-        res.status(201).json(todo);  // Return the created todo
+        res.status(201).json(todo);  
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
